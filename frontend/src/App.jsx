@@ -30,34 +30,56 @@ function App() {
       }
   };
 
-  return (
-      <div>
-          <h1>Conversor de Moedas</h1>
+    return (
+        <div className="container">
 
-          <input type="number" placeholder="Digite um valor" value={valor} onChange={(event) => setValor(event.target.value)}/>
+            <h1>Conversor de Moedas</h1>
 
-          <select value={origem} onChange={(event) => setOrigem(event.target.value)}>
-              <option value={"BRL"}>BRL</option>
-              <option value={"USD"}>USD</option>
-              <option value={"EUR"}>EUR</option>
-          </select>
+            <div className="conversor">
 
-          <span> → </span>
+                <input
+                    type="number"
+                    placeholder="Digite um valor"
+                    value={valor}
+                    onChange={(event) => setValor(event.target.value)}
+                />
 
-          <select value={destino} onChange={(event) => setDestino(event.target.value)}>
-              <option value={"USD"}>USD</option>
-              <option value={"BRL"}>BRL</option>
-              <option value={"EUR"}>EUR</option>
-          </select>
+                <div className="moedas">
+                    <select
+                        value={origem}
+                        onChange={(event) => setOrigem(event.target.value)}
+                    >
+                        <option value="BRL">BRL</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                    </select>
 
-          <button onClick={converter}>Converter</button>
+                    <span>→</span>
 
-          <p>Valor digitado: {valor}</p>
-          <p>Resultado: {resultado !== null ? resultado.toFixed(2) : "--"}</p>
+                    <select
+                        value={destino}
+                        onChange={(event) => setDestino(event.target.value)}
+                    >
+                        <option value="USD">USD</option>
+                        <option value="BRL">BRL</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                </div>
 
-          {erro && <p>{erro}</p>}
-      </div>
-  );
+                <button onClick={converter}>
+                    Converter
+                </button>
+
+            </div>
+
+            <p className="resultado">
+                Resultado: {resultado !== null ? resultado.toFixed(2) : "--"}
+            </p>
+
+            {erro && <p className="erro">{erro}</p>}
+
+        </div>
+    );
 }
 
 export default App;
