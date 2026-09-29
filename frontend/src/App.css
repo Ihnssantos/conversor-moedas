@@ -1,0 +1,16 @@
+#root {
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    margin: 5px;
+}
+
+button {
+    cursor: pointer;
+}
